@@ -4,6 +4,7 @@ package com.example.demo.api;
 import com.example.demo.model.Ticket;
 import com.example.demo.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.stream.Stream;
 public class TicketController {
 
     private TicketService ticketService;
+
 
 
     @Autowired
@@ -44,6 +46,7 @@ public class TicketController {
         ticketService.deleteTicketById(tid);
     }
 
+    @CrossOrigin
     @GetMapping(path= "/projects/{id}")
     public Stream<Ticket> getAllTicketsInProject(@PathVariable("id") UUID pid){
         return ticketService.getAllTicketsInProject(pid);

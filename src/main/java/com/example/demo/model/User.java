@@ -11,22 +11,19 @@ import java.util.UUID;
 public class User {
     @Id
     private final String uid;
-//    private final String Email;
-    private final String Password;
+    private String Password;
     private final String Firstname; //this name needs to match the JsonPropey("name")
     private final String Lastname; //this name needs to match the JsonPropey("name")
     private final List<UUID> projectIds;
 
 
     public User(@JsonProperty("uid") String uid,
-//                @JsonProperty("Email") String email,
                 @JsonProperty("Password") String Password,
                 @JsonProperty("Firstname") String Firstname,
                 @JsonProperty("Lastname") String Lastname,
                 @JsonProperty("projectIds") List<UUID> projectIds) {
 
         this.uid = uid;
-//        Email = email;
         this.Password = Password;
         this.Firstname = Firstname;
         this.Lastname = Lastname;
@@ -37,18 +34,9 @@ public class User {
         return uid;
     }
 
-    public List<UUID> getProjectIds() {
-        return projectIds;
+    public String getPassword() {
+        return Password;
     }
-
-//    public String getName() {
-//        return name;
-//    }
-
-//    public String getEmail() {
-//        return Email;
-//    }
-
 
     public String getFirstname() {
         return Firstname;
@@ -58,7 +46,11 @@ public class User {
         return Lastname;
     }
 
-    public String getPassword() {
-        return Password;
+    public List<UUID> getProjectIds() {
+        return projectIds;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 }

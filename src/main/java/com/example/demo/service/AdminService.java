@@ -19,6 +19,7 @@ public class AdminService {
     }
 
     public String AddAdmin(Admin admin){
+//        PasswordEncoder encoder = new BCryptPasswordEncoder();
         adminDao.save(admin);
         return "Added Person with id " + admin.getAid() + "and name "  + admin.getName();
 
